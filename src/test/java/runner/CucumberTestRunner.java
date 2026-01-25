@@ -11,7 +11,7 @@ import static io.cucumber.junit.platform.engine.Constants.*;
 @SelectClasspathResource("features")
 @ConfigurationParameter(
         key = GLUE_PROPERTY_NAME,
-        value = "stepdefinitions"
+        value = "stepdefinitions, utilities"
 )
 @ConfigurationParameter(
         key = PLUGIN_PROPERTY_NAME,

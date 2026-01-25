@@ -19,3 +19,10 @@ Feature: Verify endpoint response text
     When I access the namaste endpoint
     Then the response status code should be 200
     And the response body should contain "namaste"
+
+    Scenario: Wrong Namaste Endpoint displays expected text on access
+    Given the endpoint URL is available
+    When I access the namastey endpoint
+    Then the response status code should be 404
+    And the response error should contain "Not Found"
+    And the response message should contain "No static resource namastey"
