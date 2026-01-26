@@ -4,10 +4,10 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 // The annotations above connect Gherkin steps to Java methods
-
 import utilities.Config;
 import utilities.RequestSpec;
 import io.restassured.response.Response;
+import utilities.TestConfig;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
