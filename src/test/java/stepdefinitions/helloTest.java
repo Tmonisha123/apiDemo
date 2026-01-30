@@ -14,26 +14,26 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 /*
-* This class contains Cucumber step definitions (glue code) for testing greeting APIs like:
-*    - /hello
-*    - /hola
-*    - /namaste
-*
-* It uses:
-*    - Cucumber for BDD step mapping (@Given, @When, @Then)
-*    - REST Assured for making HTTP API calls
-*    - Hamcrest for assertions
-*
-* Each @Given/@When/@Then method is triggered by a matching
-* step in a .feature file.
-*
-*  NOTE:
-*  - The 'response' field stores the HTTP response so it can
-*    be reused across steps in the same scenario.
-*  - All endpoints are defined in utilities.Config
-*  - Common request settings (base URI, headers, etc.) are
-*    defined in utilities.RequestSpec
-*/
+ * This class contains Cucumber step definitions (glue code) for testing greeting APIs like:
+ *    - /hello
+ *    - /hola
+ *    - /namaste
+ *
+ * It uses:
+ *    - Cucumber for BDD step mapping (@Given, @When, @Then)
+ *    - REST Assured for making HTTP API calls
+ *    - Hamcrest for assertions
+ *
+ * Each @Given/@When/@Then method is triggered by a matching
+ * step in a .feature file.
+ *
+ *  NOTE:
+ *  - The 'response' field stores the HTTP response so it can
+ *    be reused across steps in the same scenario.
+ *  - All endpoints are defined in utilities.Config
+ *  - Common request settings (base URI, headers, etc.) are
+ *    defined in utilities.RequestSpec
+ */
 public class helloTest {
 
     Response response; //
@@ -51,7 +51,7 @@ public class helloTest {
                 .spec(RequestSpec.getSpec())
                 .when()
                 .get(Config.helloEndpoint()); // How the response is captured
-                // A proper rest assured framework - can be used anywhere
+        // A proper rest assured framework - can be used anywhere
     }
 
     @When("I access the hola endpoint")

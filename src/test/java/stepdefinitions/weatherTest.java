@@ -3,7 +3,6 @@ package stepdefinitions;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import utilities.Config;
-import utilities.ResponseContext;
 import utilities.TestConfig;
 import utilities.RequestSpec;
 import io.restassured.response.Response;
@@ -13,7 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class weatherTest {
 
-    Response weatherResponse = ResponseContext.getResponse(); //
+    Response weatherResponse; //
 
     @When("I access the London weather endpoint")
     public void i_access_the_London_weather_endpoint() {
@@ -22,7 +21,6 @@ public class weatherTest {
                 .when()
                 .get(TestConfig.London_ENDPOINT());
 
-        ResponseContext.setResponse(response);
     }
 
     @When("I access the Paris weather endpoint")
@@ -32,7 +30,6 @@ public class weatherTest {
                 .when()
                 .get(TestConfig.Paris_ENDPOINT());
 
-        ResponseContext.setResponse(response);
     }
 
     @When("I access the New York weather endpoint")
@@ -42,7 +39,6 @@ public class weatherTest {
                 .when()
                 .get(TestConfig.NewYork_ENDPOINT());
 
-        ResponseContext.setResponse(response);
     }
 
     @When("I access the Tokyo weather endpoint")
@@ -54,7 +50,7 @@ public class weatherTest {
                 .when()
                 .get(Config.namasteyEndpoint());
 
-        ResponseContext.setResponse(response);
+
 
     }
 
