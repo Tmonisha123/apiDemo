@@ -8,6 +8,7 @@ import utilities.Config;
 import utilities.RequestSpec;
 import io.restassured.response.Response;
 import utilities.TestConfig;
+import stepdefinitions.weatherTest;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -35,6 +36,7 @@ import static org.hamcrest.Matchers.equalTo;
  *    defined in utilities.RequestSpec
  */
 public class helloTest {
+
 
     Response response; //
 
@@ -96,20 +98,33 @@ public class helloTest {
 
     @Then("the response status code should be {int}")
     public void the_response_status_code_should_be(Integer int1) {
-        int actual = response.getStatusCode();
+
+        Response activeResponse =
+                (response != null) ? response : weatherTest.response;
+
+        int actual = activeResponse.getStatusCode();
         System.out.println(">>> ACTUAL STATUS CODE = " + actual);
 
         assertThat(actual, equalTo(int1));
     }
 
     @Then("the response body should contain {string}")
-    public void the_response_body_should_contain(String string) {
-        System.out.println("This is Then statement to check test " + string + "i s displayed");
-    }
+    public void the_response_body_should_contain(String expectedText) {
+
+        Response activeResponse =
+                (response != null) ? response : weatherTest.response;
+
+        String body = activeResponse.getBody().asString();
+
+        assertThat(body, org.hamcrest.Matchers.containsString(expectedText));    }
 
     @Then("the response error should contain {string}")
     public void the_response_error_should_contain(String expectedText) {
-        String body = response.getBody().asString();
+
+        Response activeResponse =
+                (response != null) ? response : weatherTest.response;
+
+        String body = activeResponse.getBody().asString();
         System.out.println(">>> RESPONSE BODY:\n" + body);
 
         assertThat(body, org.hamcrest.Matchers.containsString(expectedText));
@@ -117,7 +132,11 @@ public class helloTest {
 
     @Then("the response message should contain {string}")
     public void the_response_message_should_contain(String expectedText) {
-        String body = response.getBody().asString();
+
+        Response activeResponse =
+                (response != null) ? response : weatherTest.response;
+
+        String body = activeResponse.getBody().asString();
 
         assertThat(body, org.hamcrest.Matchers.containsString(expectedText));
     }

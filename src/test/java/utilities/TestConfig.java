@@ -46,4 +46,8 @@ public class TestConfig {
         return get("endpoint.newyork");
     }
 
+    public static String Tokyo_ENDPOINT() {
+        return get("endpoint.tokyo");
+    }
+
 }
