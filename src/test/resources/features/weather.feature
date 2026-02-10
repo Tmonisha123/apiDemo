@@ -31,7 +31,7 @@ Feature: Verify endpoint response text (Weather)
 
   Scenario: Wrong Tokyo Endpoint displays expected text on access
     Given the endpoint URL is available
-    When I access the tokyo endpoint
+    When I access the Tokyo weather endpoint
     Then the response status code should be 404
     And the response error should contain "Not Found"
     And the response message should contain "No static resource tokyo"
