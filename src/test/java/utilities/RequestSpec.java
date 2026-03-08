@@ -63,4 +63,15 @@ public class RequestSpec {
         }
         return spec;
     }
+
+    //Create getWeatherSpec()
+    public static RequestSpecification getWeatherSpec() {
+        if (spec == null) {
+            spec = new RequestSpecBuilder()
+                    .setBaseUri(TestConfig.baseUrl())
+                    .addHeader("Content-Type", "application/json")
+                    .build();
+        }
+        return spec;
+    }
 }

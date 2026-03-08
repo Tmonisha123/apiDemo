@@ -19,7 +19,7 @@ public class weatherTest {
     @When("I access the London weather endpoint")
     public void i_access_the_London_weather_endpoint() {
         response = given()
-                .spec(RequestSpec.getSpec())
+                .spec(RequestSpec.getWeatherSpec())
                 .when()
                 .get(TestConfig.London_ENDPOINT());
 
@@ -28,7 +28,7 @@ public class weatherTest {
     @When("I access the Paris weather endpoint")
     public void i_access_the_Paris_weather_endpoint() {
         response = given()
-                .spec(RequestSpec.getSpec())
+                .spec(RequestSpec.getWeatherSpec())
                 .when()
                 .get(TestConfig.Paris_ENDPOINT());
 
@@ -37,7 +37,7 @@ public class weatherTest {
     @When("I access the New York weather endpoint")
     public void i_access_the_new_york_weather_endpoint() {
         response = given()
-                .spec(RequestSpec.getSpec())
+                .spec(RequestSpec.getWeatherSpec())
                 .when()
                 .get(TestConfig.NewYork_ENDPOINT());
 
@@ -48,7 +48,7 @@ public class weatherTest {
         System.out.println("This is When statement to access Tokyo endpoint"); // Invalid endpoint -> 404
 
         response = given()
-                .spec(RequestSpec.getSpec())
+                .spec(RequestSpec.getWeatherSpec())
                 .when()
                 .get(TestConfig.Tokyo_ENDPOINT());
     }

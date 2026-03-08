@@ -30,6 +30,10 @@ public class TestConfig {
         return value;
     }
 
+    public static String baseUrl() {
+        return get("base.url");
+    }
+
     public static String BASE_URL() {
         return get("base.url");
     }
